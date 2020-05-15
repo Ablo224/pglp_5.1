@@ -13,7 +13,7 @@ public class AffichageParGroupe implements Iterable<PersonnelInterface>, Seriali
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 154586232235698548L;
+//	private static final long serialVersionUID = 154586232235698548L;
 	
 	private ArrayDeque<PersonnelInterface> g = new ArrayDeque<PersonnelInterface>();
 	
