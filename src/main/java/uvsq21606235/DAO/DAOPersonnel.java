@@ -17,7 +17,9 @@ public class DAOPersonnel implements DAO<Personnel>, Serializable {
 	
     private ArrayList<Personnel> listDAO;
     
-    public DAOPersonnel() {
+   ;
+    
+    public DAOPersonnel(int id) {
         listDAO = new ArrayList<Personnel>();
     }
     
@@ -33,16 +35,7 @@ public class DAOPersonnel implements DAO<Personnel>, Serializable {
 		
 	}
 
-	@Override
-	public Personnel obtenirElement(String email) {
-		// TODO Auto-generated method stub
-		for (Personnel p : listDAO) {
-            if (p.getEmail() == email) {
-                return p;
-            }
-        }
-        return null;
-	}
+	
 
 
 	@Override
@@ -86,6 +79,12 @@ public class DAOPersonnel implements DAO<Personnel>, Serializable {
             } else {
                 dateNaissance = object.getDateNaissance();
             }
+            int id = object.getId();
+            if (param.containsKey("id")) {
+                id = (int) param.get("id");
+            } else {
+                nom = object.getNom();
+            }
             ArrayList<String> numero;
             if (param.containsKey("numero")) {
                 ArrayList<String> tp;
@@ -94,9 +93,16 @@ public class DAOPersonnel implements DAO<Personnel>, Serializable {
             } else {
                 numero = object.getNumero();
             }
-            Personnel p = new Personnel.Builder(nom, prenom,fonction, dateNaissance, numero,email).build();
+            Personnel p = new Personnel.Builder(nom, prenom,fonction, dateNaissance, numero,email,id).build();
             listDAO.add(p);
         }
 		
+	}
+
+
+	@Override
+	public Personnel obtenirElement(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

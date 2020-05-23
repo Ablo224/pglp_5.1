@@ -15,10 +15,7 @@ public final class Personnel implements PersonnelInterface, Serializable {
 	
 	private static final long serialVersionUID = -4537205130421349371L;
 	
-//	/**
-//	 * clé unique d'un personnel
-//	 */
-//	private int cle;
+	 private int id;
 
 	/**
 	 * le nom de la personne
@@ -60,13 +57,15 @@ public final class Personnel implements PersonnelInterface, Serializable {
 		return this.email;
 	}
 	
+	public int getId() {
+		return this.id;
+	}
+	
 	
 	
 	public static class Builder{
-//			/**
-//			 * clé unique d'un personnel
-//			 */
-//			private int cle;
+			
+			private int id;
 			
 			/**
 			 * le nom de la personne
@@ -100,13 +99,15 @@ public final class Personnel implements PersonnelInterface, Serializable {
 			 */
 			private String email;
 			
-			public Builder(String Nom, String Prenom, String Fonction, LocalDate dateNaissance,ArrayList<String> numero,String email) {
+			public Builder(String Nom, String Prenom, String Fonction, LocalDate dateNaissance,ArrayList<String> numero,String email, int id) {
+			
 				this.Nom = Nom;
 				this.Prenom = Prenom;
 				this.Fonction = Fonction;
 				this.dateNaissance = dateNaissance;
 				this.Numero = numero;
 				this.email = email;
+				this.id  = id;
 			}
 			
 			
@@ -176,6 +177,7 @@ public final class Personnel implements PersonnelInterface, Serializable {
     }
 	
 	public Personnel(Builder builder) {
+		this.id = builder.id;
 		this.Nom = builder.Nom;
 		this.Prenom = builder.Prenom;
 		this.dateNaissance = builder.dateNaissance;
@@ -185,6 +187,7 @@ public final class Personnel implements PersonnelInterface, Serializable {
 	}
 	
 	public void affichage() {
+		System.out.println("Id : "+id);
 		System.out.println("Nom : "+Nom);
 		System.out.println("Prenom : "+Prenom);
 		System.out.println("Fonction : "+Fonction);
@@ -218,6 +221,8 @@ public final class Personnel implements PersonnelInterface, Serializable {
 		// TODO Auto-generated method stub
 		return (ArrayList<String>) Numero.clone();
 	}
+	
+
 	
 //	@Override
 //	public void affichageLargeur() {	

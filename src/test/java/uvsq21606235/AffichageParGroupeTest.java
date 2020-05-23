@@ -16,12 +16,13 @@ public class AffichageParGroupeTest {
 
 	@Test
 	public void serialisationTest() {
-		GroupePersonnel gp1 = new GroupePersonnel();
+		int i = 1;
+		GroupePersonnel gp1 = new GroupePersonnel(i);
     	
     	ArrayList<String> num = new ArrayList<String>();
     	num.add("07-28-54-81-10");
     	num.add("09-10-15-00-00");
-        Personnel p = new Personnel.Builder("Ababa","Amoulanfé", "Animateur", LocalDate.of(2000, 12, 12),num,"911@gmail.com").build();
+        Personnel p = new Personnel.Builder("Ababa","Amoulanfé", "Animateur", LocalDate.of(2000, 12, 12),num,"911@gmail.com",1).build();
       
         gp1.add(p);
         AffichageParGroupe parcours = new AffichageParGroupe();

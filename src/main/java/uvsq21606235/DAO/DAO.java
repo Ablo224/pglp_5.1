@@ -2,6 +2,8 @@ package uvsq21606235.DAO;
 
 import java.util.Map;
 
+import uvsq21606235.Personnes.GroupePersonnel;
+
 public interface DAO<T> {
 	
 	/**
@@ -12,7 +14,7 @@ public interface DAO<T> {
 	/**
 	 * obtentio d'un élément
 	 */
-	T obtenirElement(String email);
+	T  obtenirElement(int id);
 	
 	/**
 	 * supprimer un élément
@@ -23,5 +25,7 @@ public interface DAO<T> {
 	 * mise à jour
 	 */
 	void miseAjour(T object, Map<String, Object> param);
+
+	
 	
 }

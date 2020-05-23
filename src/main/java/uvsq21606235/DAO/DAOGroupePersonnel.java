@@ -5,12 +5,11 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import uvsq21606235.Personnes.GroupePersonnel;
+import uvsq21606235.Personnes.PersonnelInterface;
 
 public class DAOGroupePersonnel implements DAO<GroupePersonnel>, Serializable{
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = -6198144658607662218L;
 	
 	private ArrayList<GroupePersonnel> listDAO;
@@ -28,8 +27,12 @@ public class DAOGroupePersonnel implements DAO<GroupePersonnel>, Serializable{
 	}
 
 	@Override
-	public GroupePersonnel obtenirElement(String email) {
-		// TODO Auto-generated method stub
+	public GroupePersonnel obtenirElement(int id) {
+		for (GroupePersonnel g : listDAO) {
+            if (g.getId() == id) {
+                return g;
+            }
+        }
 		return null;
 	}
 
@@ -39,9 +42,20 @@ public class DAOGroupePersonnel implements DAO<GroupePersonnel>, Serializable{
 		listDAO.remove(Object);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void miseAjour(GroupePersonnel object, Map<String, Object> param) {
-		// TODO Auto-generated method stub
+	        if (listDAO.contains(object)) {
+	            if (param.containsKey("personnels")) {
+	                ArrayList<PersonnelInterface> update =
+	                (ArrayList<PersonnelInterface>)
+	                param.get("personnels");
+	                object.reset();
+	                for (PersonnelInterface ip : update) {
+	                    object.add(ip);
+	                }
+	            }
+	        }
 		
 	}
 

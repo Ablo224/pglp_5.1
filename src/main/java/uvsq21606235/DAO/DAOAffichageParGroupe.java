@@ -30,11 +30,6 @@ public class DAOAffichageParGroupe implements DAO<AffichageParGroupe>, Serializa
 			listDAO.add(Object);
 	}
 
-	@Override
-	public AffichageParGroupe obtenirElement(String email) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 
 	@Override
@@ -46,6 +41,12 @@ public class DAOAffichageParGroupe implements DAO<AffichageParGroupe>, Serializa
 	@Override
 	public void miseAjour(AffichageParGroupe object, Map<String, Object> param) {
 		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public AffichageParGroupe obtenirElement(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

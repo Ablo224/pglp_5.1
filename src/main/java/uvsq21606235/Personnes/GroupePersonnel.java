@@ -9,25 +9,26 @@ import java.util.Iterator;
 
 public class GroupePersonnel implements PersonnelInterface, Iterable<PersonnelInterface> , Serializable{
 	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -4193177096991161758L;
 
 	private ArrayList<PersonnelInterface> lePersonnel;
 	
-//	private final int cle;
-//	
-//	private static int idUnique = 1;
+	//id élément composite
+	private int id;
 	
-	public  GroupePersonnel() {
-		// TODO Auto-generated constructor stub
-		//cle = idUnique++;
+
+	
+	public  GroupePersonnel(int id) {
+		this.id = id;
 		lePersonnel= new ArrayList<PersonnelInterface>();
 	}
 	
+	public int getId() {
+		return this.id;
+	}
+	
 	public void affichage() {
-		//System.out.println("Id : " + cle);
 		for (PersonnelInterface p : lePersonnel) {
 			p.affichage();
 		}
@@ -67,6 +68,8 @@ public class GroupePersonnel implements PersonnelInterface, Iterable<PersonnelIn
 		return lePersonnel.iterator();
 	}
 	
+	
+	
 	/**
      * serialisation vers le fichier voulu.
      * @param path nom du fichier vers lequel serializer
@@ -90,6 +93,10 @@ public class GroupePersonnel implements PersonnelInterface, Iterable<PersonnelIn
         } catch (IOException e1) {
             e1.printStackTrace();
         }
+    }
+    
+    public void reset() {
+        lePersonnel.clear();
     }
 
 }

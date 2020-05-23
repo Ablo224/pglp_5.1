@@ -12,16 +12,18 @@ public class DAOGroupePersonnelTest {
 
 	@Test
     public void testAjout() {
+		int i = 1;
         DAOGroupePersonnel daogp = new DAOGroupePersonnel();
-        GroupePersonnel gp = new GroupePersonnel();
+        GroupePersonnel gp = new GroupePersonnel(i);
         daogp.ajout(gp);
         assertNotNull(daogp);
     }
 
     @Test
     public void testSuppression() {
+    	int i = 1;
         DAOGroupePersonnel daogp = new DAOGroupePersonnel();
-        GroupePersonnel gp = new GroupePersonnel();
+        GroupePersonnel gp = new GroupePersonnel(i);
         daogp.ajout(gp);
         daogp.supprimerElement(gp);
         assertNotNull(daogp);

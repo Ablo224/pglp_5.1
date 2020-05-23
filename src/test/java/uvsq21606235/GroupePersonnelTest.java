@@ -15,16 +15,16 @@ public class GroupePersonnelTest {
 
 	@Test
 	public void testAdd() {
-		GroupePersonnel gp = new GroupePersonnel();
-		gp.add(new GroupePersonnel());
+		GroupePersonnel gp = new GroupePersonnel(1);
+		gp.add(new GroupePersonnel(1));
 		Iterator<PersonnelInterface> ip = gp.iterator();
 		assertFalse(!ip.hasNext());
 	}
 	
 	@Test
 	public void testDelete() {
-		GroupePersonnel gp = new GroupePersonnel();
-		GroupePersonnel gp1 = new GroupePersonnel();
+		GroupePersonnel gp = new GroupePersonnel(1);
+		GroupePersonnel gp1 = new GroupePersonnel(1);
 		gp.add(gp1);
 		gp.delete(gp1);
 		Iterator<PersonnelInterface> p = gp.iterator();
@@ -36,8 +36,8 @@ public class GroupePersonnelTest {
 	 */
 	@Test
 	public void testSerialization() {
-	    GroupePersonnel gp1 = new GroupePersonnel();
-	    GroupePersonnel gp2 = new GroupePersonnel();
+	    GroupePersonnel gp1 = new GroupePersonnel(1);
+	    GroupePersonnel gp2 = new GroupePersonnel(1);
 	    gp1.add(gp2);
         
         gp1.serialisation("essai.txt");
